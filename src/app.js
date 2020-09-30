@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 //     origin: 'http://localhost:8080'
 // }))
 app.use((req, res, next) => {
-	res.header("Access-Control-Allow-Origin", 'http://localhost:' + config.port)
+	res.header("Access-Control-Allow-Origin", 'https://one--pass.herokuapp.com')
 	res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE")
 	res.header("Access-Control-Allow-Credentials", true)
 	res.header("Access-Control-Allow-Headers", "content-type")
