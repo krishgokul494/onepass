@@ -12,7 +12,11 @@ const serveStatic = require('serve-static')
 const app = express()
 
 console.log(__dirname + '/public')
-app.use('/', serveStatic(__dirname + '/public'))
+// app.use('/', serveStatic(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'))
+app.get(/.*/, (req, res) => {
+	res.sendfile(__dirname + '/public/index.html')
+})
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
