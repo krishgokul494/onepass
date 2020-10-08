@@ -26,6 +26,7 @@ const savePassword = async (req, res) => {
 		folder_name: req.body.folder
 	}).then((folder) => {
 		CRUD.addPassword({
+			id: req.body.id,
 			user_id: req.user.dataValues.id,
 			folder_id: folder.dataValues.id,
 			name: req.body.name,
@@ -34,7 +35,8 @@ const savePassword = async (req, res) => {
 			encryptedPassword: req.body.password
 		}).then(() => {
 			res.send({
-				save: true
+				save: true,
+				folder_id: folder.dataValues.id
 			})
 		}).catch((error) => {
 			console.log(error)
@@ -73,13 +75,16 @@ const saveNote = async (req, res) => {
 		folder_name: req.body.folder
 	}).then((folder) => {
 		CRUD.addNote({
+			id: req.body.id,
 			user_id: req.user.dataValues.id,
 			folder_id: folder.dataValues.id,
 			name: req.body.name,
 			content: req.body.note
 		}).then(() => {
+			console.log("folder_id", folder.dataValues.id)
 			res.send({
-				save: true
+				save: true,
+				folder_id: folder.dataValues.id
 			})
 		}).catch((error) => {
 			console.log(error)

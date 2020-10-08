@@ -14,7 +14,15 @@ const Note = (sequelize, DataTypes) => {
       allowNull: true,
       type: DataTypes.TEXT
     }
-  })
+  },
+	{
+		indexes: [
+			{
+				unique: true,
+				fields: ['user_id', 'name']
+			}
+		]
+	})
 
   note.associate = (models) => {
     note.belongsTo(models.user, {as: 'Notes', foreignKey: 'user_id'})

@@ -5,7 +5,7 @@ router.post('', vaultController.loadVault)
 
 router.post('/delete', vaultController.deleteItem)
 
-router.get('/count', vaultController.getCount)
+router.post('/count', vaultController.getCount)
 
 router.post('/folder', vaultController.getFolder)
 

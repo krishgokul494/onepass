@@ -20,6 +20,10 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       masterpassword: {
           type: Sequelize.STRING,
           allowNull: false

@@ -7,6 +7,7 @@ const register = async (req, res) => {
 	if(errors.isEmpty()){
 		await User.create({
 			email: req.body.email,
+			name: req.body.name,
 			masterpassword: req.body.masterpassword,
 			encryptionSalt: encryptionSalt,
 			remainder: req.body.remainder

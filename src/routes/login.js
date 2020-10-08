@@ -3,10 +3,10 @@ const router = require('express').Router()
 const passport = require('passport')
 
 router.post('', passport.authenticate('local'), (req, res) => {
-	console.log('xxx')
 	console.log(req.user)
 	res.send({
 		email: req.user.email,
+		name: req.user.name,
 		encryptionSalt: req.user.encryptionSalt
 	});
 })

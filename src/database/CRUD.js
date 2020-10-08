@@ -18,7 +18,7 @@ const addFolder = async (data) => {
 
 const addPassword = async (data) => {
 	console.log(data)
-	return await Password.create(data)
+	return await Password.upsert(data)
 		.then(() => {
 			return true
 		}).catch((error) => {
@@ -37,20 +37,24 @@ const loadVault = async (id) => {
 			{
 				model: Password,
 				as: 'Passwords',
-				attributes: ['id', 'folder_id', 'url', 'name', 'userName'],
-				order: [
-					[Password, 'name', 'ASC']
-				]
+				attributes: ['id', 'folder_id', 'url', 'name', 'userName']
+				// order: [
+				// 	[Password, 'name', 'ASC']
+				// ]
 			},
 			{
 				model: Note,
 				as: 'Notes',
-				attributes: ['id', 'folder_id', 'name', 'content'],
-				order: [[Note, 'name', 'ASC']]
+				attributes: ['id', 'folder_id', 'name', 'content']
+				// order: [
+				// 	[Note, 'name', 'ASC']
+				// ]
 			}
 		],
 		order: [
 			['folder_name', 'ASC']
+			// [Password, 'name', 'ASC'],
+			// [Note, 'name', 'ASC']
 		]
 	},{
 		raw: true
@@ -136,7 +140,7 @@ const getPassword = async (userid, passwordid) => {
 }
 
 const addNote = async (noteData) => {
-	return await Note.create(noteData)
+	return await Note.upsert(noteData)
 		.then(() => {
 			return true
 		}).catch((error) => {

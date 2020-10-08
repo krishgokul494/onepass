@@ -8,9 +8,10 @@ passport.use(
 		usernameField: "email",
 		passwordField: "masterpassword"
 	}, async (username, password, done) => {
-		console.log(username)
-		console.log(password)
+		console.log("user: ", username)
+		console.log("pass: ", password)
 		await User.findOne({where: {email: username}}).then(user => {
+			console.log("dbPass: ", user.masterpassword)
 			if(!user){
 				console.log('username')
 				return done(null, false, {message: "Invalid Email"})

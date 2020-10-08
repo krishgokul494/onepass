@@ -22,6 +22,14 @@ const Password = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		}
+	},
+	{
+		indexes: [
+			{
+				unique: true,
+				fields: ['user_id', 'name']
+			}
+		]
 	})
 
 	password.associate = (models) => {

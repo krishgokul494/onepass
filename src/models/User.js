@@ -11,6 +11,10 @@ const User = (sequelize, DataTypes) => {
 			allowNull: false,
 			unique: true
 		},
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
 		masterpassword: {
 			type: DataTypes.STRING,
 			allowNull: false

@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "nodemon --ignore 'src/public' src/app.js --exec \"npm run lint && node\"",
     "lint": "eslint src/**/*.js",
     "debug": "node src/app.js --trace-deprecation --exec"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -23,8 +24,7 @@
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.3.4",
-    "serve-static": "^1.14.1"
+    "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
@@ -33,5 +33,10 @@
   },
   "engines": {
     "node": "14.x"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "server/src/public"
+    ]
   }
 }
