@@ -15,10 +15,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": process.env.db_username,
-    "password": process.env.db_password,
-    "database": process.env.db_name,
-    "host": process.env.db_host,
+    "username": "b0189dc206bc7f",
+    "password": "ca2e738d",
+    "database": "heroku_70b9def80943ad6",
+    "host": "us-cdbr-east-02.cleardb.com",
     "dialect": "mysql"
   }
 }
