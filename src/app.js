@@ -44,7 +44,7 @@ const registerRoutes = require('./routes/register')
 const saveRoutes = require('./routes/save')
 const vaultRoutes = require('./routes/vault')
 
-app.get('/.*/', (req, res) => {
+app.get('/*/', (req, res) => {
 	res.sendFile(__dirname + '/public/index.html')
 })
 
