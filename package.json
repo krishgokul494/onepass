@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --ignore 'src/public' src/app.js --exec \"npm run lint && node\"",
+    "start": "node src/app.js --exec",
     "lint": "eslint src/**/*.js",
     "debug": "node src/app.js --trace-deprecation --exec"
   },
