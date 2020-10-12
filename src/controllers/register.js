@@ -14,13 +14,18 @@ const register = async (req, res) => {
 		}).then((user) => {
 			res.send(user)
 		}).catch((error) => {
-			res.status(400).send({
-				error: error
+			console.log('trrr')
+			res.status(409).send({
+				name: error.name,
+				description: 'Email already Exists'
 			})
 		})
 	}else{
+		console.log('mrrr')
+		console.log(errors)
 		res.status(400).send({
-			error: errors.errors
+			name: 'InputFormatError',
+			errors: errors.errors
 		})
 	}
 }
